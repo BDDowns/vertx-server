@@ -1,9 +1,16 @@
 import io.vertx.core.Vertx
+import io.vertx.ext.web.Router
 
 fun main(args: Array<String>) {
     val vertx = Vertx.vertx()
-    vertx.createHttpServer().requestHandler {
-        it.response().end("OK")
-    }.listen(8081)
+    val router = Router.router(vertx)
+    router.get("/status").handler {
+        it.response()
+            .setStatusCode(200)
+            .end("OK")
+    }
+    vertx.createHttpServer()
+        .requestHandler(router)
+        .listen(8081)
     println("open http://localhost:8081")
 }
