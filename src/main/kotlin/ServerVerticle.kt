@@ -16,6 +16,12 @@ class ServerVerticle : CoroutineVerticle() {
                 .setStatusCode(200)
                 .end(json.toString())
         }
+        router.delete("/users/:id").handler {
+            TODO("code for deleting users")
+        }
+        router.put("/users/:id").handler {
+            TODO("code for updating a user")
+        }
         vertx.createHttpServer()
             .requestHandler(router)
             .listen(8081)
