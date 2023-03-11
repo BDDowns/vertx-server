@@ -12,6 +12,7 @@ repositories {
 
 dependencies {
     val jupiterVersion: String by project
+    val postgresVersion: String by project
     val vertxVersion: String by project
 
     // vertx
@@ -19,6 +20,9 @@ dependencies {
     implementation("io.vertx:vertx-lang-kotlin-coroutines:$vertxVersion")
     implementation("io.vertx:vertx-lang-kotlin:$vertxVersion")
     implementation("io.vertx:vertx-web:$vertxVersion")
+    // DB
+    implementation("org.postgresql:postgresql:$postgresVersion")
+    implementation("io.vertx:vertx-pg-client:$vertxVersion")
 
     testImplementation(kotlin("test"))
     testImplementation("org.junit.jupiter:junit-jupiter-engine:$jupiterVersion")
